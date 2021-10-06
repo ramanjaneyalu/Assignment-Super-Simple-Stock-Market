@@ -7,6 +7,7 @@ class PreferredDividendYield(AbstractFormula):
         self.__par_value = par_value
         self.__price = price
 
+    @property
     def execute(self):
         return (self.__fixed_dividend * self.__par_value) / self.__price
 

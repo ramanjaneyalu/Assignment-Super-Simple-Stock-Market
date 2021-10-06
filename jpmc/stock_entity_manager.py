@@ -41,7 +41,7 @@ class StockEntityManager:
     def execute_formula_request(self, request, stock_symbol=None, price=None):
         if request == FormulaRequest.GeometricMean:
             formula_obj = FormulaFactory.new_geometric_mean(self.__trade_store)
-            result = formula_obj.execute()
+            result = formula_obj.execute
             return result
         elif request in [FormulaRequest.PERatio, FormulaRequest.DividendYield,
                          FormulaRequest.VolumeWeightedStockPrice]:
@@ -54,7 +54,7 @@ class StockEntityManager:
                 formula_obj = FormulaFactory.new_volume_weighted_stock_price(self.__trade_store, stock)
             else:
                 raise StockMarketException("Stock [" + stock_symbol + "] is not listed on the exchange.")
-            result = formula_obj.execute()
+            result = formula_obj.execute
             return result
         else:
             raise StockMarketException(f"{request} **Not Supported**")

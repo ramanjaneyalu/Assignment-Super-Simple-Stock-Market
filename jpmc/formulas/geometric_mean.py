@@ -14,6 +14,7 @@ class GeometricMean(AbstractFormula):
         self.__trade_data = trade_data
         self.__stock_count = stock_count
 
+    @property
     def execute(self):
         product = 1.0
         for trade_time, trade_obj in self.__trade_data.items():

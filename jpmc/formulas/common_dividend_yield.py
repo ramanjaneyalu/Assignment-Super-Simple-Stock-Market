@@ -6,6 +6,7 @@ class CommonDividendYield(AbstractFormula):
         self.__last_dividend = last_dividend
         self.__price = price
 
+    @property
     def execute(self):
         return self.__last_dividend / self.__price
 

@@ -7,6 +7,7 @@ class PERatio(AbstractFormula):
         self.__price = price
         self.__dividend = dividend
 
+    @property
     def execute(self):
         return self.__price/self.__dividend
 

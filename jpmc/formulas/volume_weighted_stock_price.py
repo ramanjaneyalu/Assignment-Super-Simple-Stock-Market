@@ -6,6 +6,7 @@ class VolumeWeightedStockPrice(AbstractFormula):
         self.__volume_weighted_stock_price = volume_weighted_stock_price
         self.__quantity = quantity
 
+    @property
     def execute(self):
         return self.__volume_weighted_stock_price / self.__quantity
 
