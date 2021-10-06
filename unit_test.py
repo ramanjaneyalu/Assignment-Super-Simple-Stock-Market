@@ -4,6 +4,7 @@ from jpmc.formulas.common_dividend_yield import CommonDividendYield
 from jpmc.formulas.formula_factory import FormulaRequest
 from jpmc.formulas.pe_ratio import PERatio
 from jpmc.formulas.preferred_dividend_yield import PreferredDividendYield
+from jpmc.model.trade import Trade, TradeIndicator
 from jpmc.stock_data import StockData
 from jpmc.stock_entity_manager import StockEntityManager
 
@@ -34,6 +35,18 @@ class UnitTests(unittest.TestCase):
         dividend_yield_obj = PreferredDividendYield(stock.get_fixed_dividend(), stock.get_par_value(), 185)
         expected_result = dividend_yield_obj.execute()
         self.assertEqual(result, expected_result)
+
+    def test_buy(self):
+        result = self.stock_entity_manager_obj.buy("POP", 100, 10)
+        stock = self.stock_data.get("POP")
+        trade = Trade(stock, TradeIndicator.BUY, 100, 10)
+        self.assertEqual(result, str(trade))
+
+    def test_sell(self):
+        result = self.stock_entity_manager_obj.sell("GIN", 100, 10)
+        stock = self.stock_data.get("GIN")
+        trade = Trade(stock, TradeIndicator.SELL, 100, 10)
+        self.assertEqual(result, str(trade))
 
 
 if __name__ == '__main__':
