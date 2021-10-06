@@ -35,7 +35,7 @@ There are 3 Enum types,
 1. All the formula classes inhertis from the Abstract class **AbstractFormula** which has **execute** method and implements it.
 1. Once the **StockEntityManager** gets the formula object by using the intermediate class **FormulaFactory** it executes it and returns the result.
 
-Note: All the classes have members or variables as private and can be accessible using it' corresponding **get_variable_name** method to get the values.
+Note: All the classes have members or variables as private and can be accessible using it's corresponding **get_variable_name** method to get the values.
 
 
 
